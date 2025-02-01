@@ -34,9 +34,17 @@ def add():
         }
         current_posts.append(new_post)
         save_posts(POSTS_FILE, current_posts)
-        return redirect(url_for('index'))
+        return redirect(url_for("index"))
 
     return render_template("add.html")
+
+
+@app.route('/delete/<post_id>')
+def delete(post_id):
+    current_posts = load_posts(POSTS_FILE)
+    remaining_posts = [post for post in current_posts if str(post['id']) != post_id]
+    save_posts(POSTS_FILE, remaining_posts)
+    return redirect(url_for("index"))
 
 
 if __name__ == "__main__":

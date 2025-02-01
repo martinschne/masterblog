@@ -49,6 +49,10 @@ nav a.active {
     color: white;
 }
 
+.no-posts-message {
+    text-align: center
+}
+
 .posts-container {
     padding: 20px;
     max-width: 800px;
@@ -71,7 +75,18 @@ nav a.active {
     margin: 10px 0;
 }
 
-/* Form container styling */
+.delete-button {
+    display: inline-block;
+    color: #F44336;
+    text-align: right;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.delete-button:hover {
+    color: #D32F2F;
+}
+
 form {
     background-color: #FFF;
     border: 1px solid #DDD;
@@ -82,7 +97,6 @@ form {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Styling for labels */
 form label {
     display: block;
     font-weight: bold;
@@ -91,7 +105,6 @@ form label {
     color: #333;
 }
 
-/* Input and textarea styling */
 form input[type="text"],
 form textarea {
     width: 100%;
@@ -107,14 +120,12 @@ form textarea {
     resize: vertical
 }
 
-/* Focus effect for inputs and textarea */
 form input[type="text"]:focus,
 form textarea:focus {
     border-color: #4F8DF7; /* Blue border on focus */
     outline: none;
 }
 
-/* Submit button styling */
 form input[type="submit"] {
     background-color: #4F8DF7;
     color: white;
