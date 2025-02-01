@@ -1,13 +1,58 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     font-family: Arial, sans-serif;
     background-color: #F5F5F5;
-    padding: 20px;
     color: #333;
+}
+
+.content {
+    flex-grow: 1;
 }
 
 h1 {
     text-align: center;
     color: #4F4F4F;
+}
+
+nav {
+    margin-bottom: 22px;
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 10px;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav a:hover {
+    background-color: #4F8DF7;
+    color: white;
+}
+
+nav a.active {
+    background-color: #357ae8;
+    color: white;
+}
+
+.posts-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .post {
@@ -24,4 +69,74 @@ h1 {
 
 .post p {
     margin: 10px 0;
+}
+
+/* Form container styling */
+form {
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling for labels */
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* Input and textarea styling */
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+form textarea {
+    resize: vertical
+}
+
+/* Focus effect for inputs and textarea */
+form input[type="text"]:focus,
+form textarea:focus {
+    border-color: #4F8DF7; /* Blue border on focus */
+    outline: none;
+}
+
+/* Submit button styling */
+form input[type="submit"] {
+    background-color: #4F8DF7;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+form input[type="submit"]:hover {
+    background-color: #357ae8;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+footer p {
+    text-align: center
 }

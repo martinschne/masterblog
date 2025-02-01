@@ -1,13 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Flask Blog</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <h1>Welcome to My Flask Blog!</h1>
+{% extends "base.html" %}
+
+{% block title %}My Blog Posts - Masterblog{% endblock %}
+{% block header %}My Blog Posts{% endblock %}
+
+{% block content %}
+    <div class="posts-container">
     {% if not posts %}
         <p>There are no posts to show.</p>
     {% else %}
@@ -19,5 +16,5 @@
             </div>
         {% endfor %}
     {% endif %}
-</body>
-</html>
+    </div>
+{% endblock %}

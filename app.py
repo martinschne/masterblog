@@ -1,6 +1,7 @@
 import os
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
+from nanoid import generate
 
 from storage import load_posts, save_posts
 
@@ -19,6 +20,23 @@ if not os.path.exists(POSTS_FILE):
 def index():
     blog_posts = load_posts(POSTS_FILE)
     return render_template('index.html', posts=blog_posts)
+
+
+@app.route("/add", methods=["GET", "POST"])
+def add():
+    if request.method == "POST":
+        current_posts = load_posts(POSTS_FILE)
+        new_post = {
+            "id": generate(),
+            "title": request.form.get("title"),
+            "author": request.form.get("author"),
+            "content": request.form.get("content")
+        }
+        current_posts.append(new_post)
+        save_posts(POSTS_FILE, current_posts)
+        return redirect(url_for('index'))
+
+    return render_template("add.html")
 
 
 if __name__ == "__main__":

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}New Post - Masterblog{% endblock %}
+{% block header %}New Post{% endblock %}
+
+{% block content %}
+    <form action="/add" method="post">
+        <label for="author">Author:</label>
+        <input id="author" name="author" type="text" placeholder="e.g.: Mary Hopkins" required>
+        <label for="title">Title:</label>
+        <input id="title" name="title" type="text" placeholder="e.g.: How to make a friend" required>
+        <label for="content">Content:</label>
+        <textarea id="content" name="content" rows=2 placeholder="Today I met my first real friend..." required></textarea>
+        <br />
+        <input type="submit" value="Add">
+    </form>
+{% endblock %}
