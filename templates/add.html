@@ -4,6 +4,8 @@
 {% block header %}New Post{% endblock %}
 
 {% block content %}
+    <!-- server side validation messages -->
+    {% include "_flash_messages.html" %}
     <form action="/add" method="post">
         <label for="author">Author:</label>
         <input id="author" name="author" type="text" placeholder="e.g.: Mary Hopkins" required>

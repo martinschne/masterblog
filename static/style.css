@@ -50,7 +50,7 @@ nav a.active {
 }
 
 .no-posts-message {
-    text-align: center
+    text-align: center;
 }
 
 .posts-container {
@@ -75,16 +75,28 @@ nav a.active {
     margin: 10px 0;
 }
 
-.delete-button {
+.button {
     display: inline-block;
-    color: #F44336;
+    margin-right: 10px;
     text-align: right;
     text-decoration: none;
     transition: color 0.3s;
 }
 
+.delete-button {
+    color: #F44336;
+}
+
 .delete-button:hover {
     color: #D32F2F;
+}
+
+.update-button {
+    color: #4CAF50;
+}
+
+.update-button:hover {
+    color: #388E3C;
 }
 
 form {
@@ -117,7 +129,7 @@ form textarea {
 }
 
 form textarea {
-    resize: vertical
+    resize: vertical;
 }
 
 form input[type="text"]:focus,
@@ -149,5 +161,12 @@ footer {
 }
 
 footer p {
+    text-align: center;
+}
+
+.validation-messages {
+    list-style-type: none;
+    padding: 5px;
+    color: #F44336;
     text-align: center
 }
