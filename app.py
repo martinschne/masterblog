@@ -1,7 +1,7 @@
 import os
 
 from dotenv import load_dotenv
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, redirect, url_for, flash, Response
 from nanoid import generate
 
 from storage import load_posts, save_posts, fetch_post_by_id
@@ -63,7 +63,7 @@ def index() -> str:
 
 
 @app.route("/add", methods=["GET", "POST"])
-def add() -> "Response" | str:
+def add() -> Response | str:
     """
     Handles the creation of a new blog post.
 
@@ -95,7 +95,7 @@ def add() -> "Response" | str:
 
 
 @app.route('/delete/<post_id>')
-def delete(post_id: str) -> "Response":
+def delete(post_id: str) -> Response:
     """
     Deletes a blog post by its ID.
 
@@ -106,7 +106,7 @@ def delete(post_id: str) -> "Response":
         post_id (str): The ID of the post to delete.
 
     Returns:
-        Response: Redirect to the 'index' route after deleting the post.
+        Response: Redirect response to the 'index' route after deleting the post.
     """
     current_posts = load_posts(POSTS_FILE)
     remaining_posts = [post for post in current_posts if str(post['id']) != post_id]
@@ -115,7 +115,7 @@ def delete(post_id: str) -> "Response":
 
 
 @app.route('/update/<post_id>', methods=["GET", "POST"])
-def update(post_id: str) -> tuple[str, int] | "Response" | str:
+def update(post_id: str) -> tuple[str, int] | Response | str:
     """
     Updates an existing blog post.
 
